@@ -7,7 +7,7 @@ function App() {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice ] = useState("");
 
-  const API = "http://localhost:5000/api/items";
+  const API = "https://item-manager-1-sn7g.onrender.com";
 
   // GET items
   const fetchItems = async () => {
