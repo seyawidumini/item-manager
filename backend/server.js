@@ -28,10 +28,14 @@ app.get("/test", (req, res) => {
 });
 
 app.get("/api/items", async (req, res) => {
-  const items = await Item.find();
-  res.json(items);
+  try {
+    const items = await Item.find();
+    res.json(items);
+  } catch (err) {
+    console.error("GET ITEMS ERROR:", err.message);
+    res.status(500).json({ error: err.message });
+  }
 });
-
 app.post("/api/items", async (req, res) => {
   const newItem = new Item(req.body);
   await newItem.save();
