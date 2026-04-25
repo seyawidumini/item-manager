@@ -28,10 +28,6 @@ app.get("/api/items", async (req, res) => {
   res.json(items);
 });
 
-app.get("/", (req, res) => {
-  res.send("Backend is working");
-});
-
 // POST
 app.post("/api/items", async (req, res) => {
   const newItem = new Item(req.body);
